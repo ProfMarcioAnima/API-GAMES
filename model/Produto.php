@@ -29,7 +29,7 @@ class Produto {
     }
     
     public function consultaID($id) {
-        $sql = "SELECT * FROM $this->tabela WHERE id = :id";
+        $sql = "SELECT id, nome, imagem, estudio, categoria, idade, valor, disponibilidade FROM $this->tabela WHERE id_jogos = :id";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
@@ -88,7 +88,7 @@ class Produto {
     }
     
     public function consultaPorCategoria($categoria) {
-        $sql = "SELECT * FROM $this->tabela WHERE categoria = :categoria";
+        $sql = "SELECT id, nome, imagem, estudio, categoria, idade, valor, disponibilidade FROM $this->tabela WHERE categoria = :categoria";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':categoria', $categoria, PDO::PARAM_STR);
         $stmt->execute();
@@ -96,7 +96,7 @@ class Produto {
     }
 
     public function consultaPorNome($nome) {
-        $sql = "SELECT * FROM $this->tabela WHERE nome LIKE :nome";
+        $sql = "SELECT id, nome, imagem, estudio, categoria, idade, valor, disponibilidade FROM $this->tabela WHERE nome LIKE :nome";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':nome', '%' . $nome . '%', PDO::PARAM_STR);
         $stmt->execute();
@@ -104,7 +104,7 @@ class Produto {
     }
 
     public function consultaPorIdade($idade) {
-        $sql = "SELECT * FROM $this->tabela WHERE idade LIKE :idade";
+        $sql = "SELECT id, nome, imagem, estudio, categoria, idade, valor, disponibilidade FROM $this->tabela WHERE idade LIKE :idade";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':idade', '%' . $idade . '%', PDO::PARAM_STR);
         $stmt->execute();
@@ -112,7 +112,7 @@ class Produto {
     }
 
     public function consultaPorEstudio($estudio) {
-        $sql = "SELECT * FROM $this->tabela WHERE estudio LIKE :estudio";
+        $sql = "SELECT id, nome, imagem, estudio, categoria, idade, valor, disponibilidade FROM $this->tabela WHERE estudio LIKE :estudio";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':estudio', '%' . $estudio . '%', PDO::PARAM_STR);
         $stmt->execute();
@@ -120,7 +120,7 @@ class Produto {
     }
 
     public function consultaPorValorMenor($valor) {
-        $sql = "SELECT * FROM $this->tabela WHERE valor < :valor";
+        $sql = "SELECT id, nome, imagem, estudio, categoria, idade, valor, disponibilidade FROM $this->tabela WHERE valor < :valor";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':valor', $valor);
         $stmt->execute();
@@ -128,7 +128,7 @@ class Produto {
     }
 
     public function consultaPorValorMaior($valor) {
-        $sql = "SELECT * FROM $this->tabela WHERE valor > :valor";
+        $sql = "SELECT id, nome, imagem, estudio, categoria, idade, valor, disponibilidade FROM $this->tabela WHERE valor > :valor";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':valor', $valor);
         $stmt->execute();
@@ -136,7 +136,7 @@ class Produto {
     }
 
     public function consultaPorValorEntre($min, $max) {
-        $sql = "SELECT * FROM $this->tabela WHERE valor BETWEEN :min AND :max";
+        $sql = "SELECT id, nome, imagem, estudio, categoria, idade, valor, disponibilidade FROM $this->tabela WHERE valor BETWEEN :min AND :max";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':min', $min);
         $stmt->bindParam(':max', $max);
@@ -145,7 +145,7 @@ class Produto {
     }
 
     public function consultaPorDisponibilidade($disp) {
-        $sql = "SELECT * FROM $this->tabela WHERE disponibilidade = :disp";
+        $sql = "SELECT id, nome, imagem, estudio, categoria, idade, valor, disponibilidade FROM $this->tabela WHERE disponibilidade = :disp";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':disp', $disp, PDO::PARAM_BOOL);
         $stmt->execute();
