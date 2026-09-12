@@ -22,7 +22,7 @@ class Produto {
     }
     
     public function consulta() {
-        $sql = "SELECT * FROM $this->tabela";
+        $sql = "SELECT id, nome, imagem, estudio, categoria, idade, valor, disponibilidade FROM $this->tabela";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll();
