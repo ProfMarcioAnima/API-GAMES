@@ -21,7 +21,7 @@ class Jogo {
         $this->pdo = $pdo;
     }
     
-    public function consulta() {
+    public function consultar() {
         $sql = "SELECT id, nome, imagem, estudio, categoria,
         idade, valor, disponibilidade FROM $this->tabela";
         $stmt = $this->pdo->prepare($sql);
