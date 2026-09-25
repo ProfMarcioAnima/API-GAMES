@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/controller/produtoController.php';
+require_once __DIR__ . '/controller/jogoController.php';
 
 header('Content-Type: application/json');
 
@@ -17,7 +17,7 @@ if (isset($path[0]) && strtolower($path[0]) === 'api.php') {
 }
 
 $method = $_SERVER['REQUEST_METHOD'];
-$controller = new produtoController();
+$controller = new jogoController();
 
 $routes = [
     ['GET',    ['jogos'],                                  'index',                   0],
