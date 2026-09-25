@@ -30,8 +30,7 @@ class Jogo {
     }
     
     public function consultaID($id) {
-        $sql = "SELECT id, nome, imagem, estudio, categoria, 
-        idade, valor, disponibilidade FROM $this->tabela WHERE id = :id";
+        $sql = "SELECT id, nome, imagem, estudio, categoria, idade, valor, disponibilidade FROM $this->tabela WHERE id = :id";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
