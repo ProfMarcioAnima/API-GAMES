@@ -120,7 +120,7 @@ class Jogo {
     }
 
     public function consultaPorValorMenor($valor) {
-        $sql = "SELECT * FROM $this->tabela WHERE valor < :valor";
+        $sql = "SELECT id, nome, estudio, categoria, idade, valor, disponibilidade FROM $this->tabela WHERE valor < :valor";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':valor', $valor);
         $stmt->execute();
