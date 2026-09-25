@@ -3,7 +3,7 @@ error_reporting(E_ALL & ~E_NOTICE);
 
 require_once __DIR__ . '/../config.php';
 
-class Produto {
+class Jogo {
     private $pdo;
     private $tabela = 'jogos';
 
@@ -36,21 +36,21 @@ class Produto {
         return $stmt->fetch();
     }
 
-    public function inserir(Produto $produto) {
+    public function inserir(Jogo $jogo) {
         $sql = "INSERT INTO $this->tabela (nome, imagem, estudio, categoria, idade, valor, disponibilidade)
                 VALUES (:nome, :imagem, :estudio, :categoria, :idade, :valor, :disponibilidade)";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->bindValue(':nome', $produto->getNome(), PDO::PARAM_STR);
-        $stmt->bindValue(':imagem', $produto->getImagem(), PDO::PARAM_STR);
-        $stmt->bindValue(':estudio', $produto->getEstudio(), PDO::PARAM_STR);
-        $stmt->bindValue(':categoria', $produto->getCategoria(), PDO::PARAM_STR);
-        $stmt->bindValue(':idade', $produto->getIdade(), PDO::PARAM_STR);
-        $stmt->bindValue(':valor', $produto->getValor());
-        $stmt->bindValue(':disponibilidade', $produto->getDisponibilidade(), PDO::PARAM_BOOL);
+        $stmt->bindValue(':nome', $jogo->getNome(), PDO::PARAM_STR);
+        $stmt->bindValue(':imagem', $jogo->getImagem(), PDO::PARAM_STR);
+        $stmt->bindValue(':estudio', $jogo->getEstudio(), PDO::PARAM_STR);
+        $stmt->bindValue(':categoria', $jogo->getCategoria(), PDO::PARAM_STR);
+        $stmt->bindValue(':idade', $jogo->getIdade(), PDO::PARAM_STR);
+        $stmt->bindValue(':valor', $jogo->getValor());
+        $stmt->bindValue(':disponibilidade', $jogo->getDisponibilidade(), PDO::PARAM_BOOL);
         return $stmt->execute();
     }
 
-    public function editar(Produto $produto, $id) {
+    public function editar(Jogo $jogo, $id) {
         $sql = "UPDATE $this->tabela SET 
                     nome = :nome, 
                     imagem = :imagem,
@@ -61,13 +61,13 @@ class Produto {
                     disponibilidade = :disponibilidade
                 WHERE id = :id";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->bindValue(':nome', $produto->getNome(), PDO::PARAM_STR);
-        $stmt->bindValue(':imagem', $produto->getImagem(), PDO::PARAM_STR);
-        $stmt->bindValue(':estudio', $produto->getEstudio(), PDO::PARAM_STR);
-        $stmt->bindValue(':categoria', $produto->getCategoria(), PDO::PARAM_STR);
-        $stmt->bindValue(':idade', $produto->getIdade(), PDO::PARAM_STR);
-        $stmt->bindValue(':valor', $produto->getValor());
-        $stmt->bindValue(':disponibilidade', $produto->getDisponibilidade(), PDO::PARAM_BOOL);
+        $stmt->bindValue(':nome', $jogo->getNome(), PDO::PARAM_STR);
+        $stmt->bindValue(':imagem', $jogo->getImagem(), PDO::PARAM_STR);
+        $stmt->bindValue(':estudio', $jogo->getEstudio(), PDO::PARAM_STR);
+        $stmt->bindValue(':categoria', $jogo->getCategoria(), PDO::PARAM_STR);
+        $stmt->bindValue(':idade', $jogo->getIdade(), PDO::PARAM_STR);
+        $stmt->bindValue(':valor', $jogo->getValor());
+        $stmt->bindValue(':disponibilidade', $jogo->getDisponibilidade(), PDO::PARAM_BOOL);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         return $stmt->execute();
     }
