@@ -87,8 +87,8 @@ class Jogo {
         return $stmt->execute();
     }
     
-    public function consultaPorCategoria($categoria) {
-        $sql = "SELECT * FROM $this->tabela WHERE categoria = :categoria";
+    public function consultarPorCategoria($categoria) {
+        $sql = "SELECT id, nome, imagem, estudio, categoria, idade, valor, disponibilidade FROM $this->tabela WHERE categoria = :categoria";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':categoria', $categoria, PDO::PARAM_STR);
         $stmt->execute();

@@ -33,7 +33,7 @@ class jogoController {
 
     public function filterByCategoria($categoria) {
         $jogoModel = new Jogo();
-        return $jogoModel->consultaPorCategoria($categoria);
+        return $jogoModel->consultarPorCategoria($categoria);
     }
 
     public function filterByNome($nome) {
