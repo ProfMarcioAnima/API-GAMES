@@ -5,7 +5,7 @@ class jogoController {
 
     public function index() {
         $jogoModel = new Jogo();
-        return $jogoModel->consulta();
+        return $jogoModel->consultar();
     }
 
     public function show($id) {
