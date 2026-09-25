@@ -129,7 +129,7 @@ class Jogo {
     }
 
     public function consultaPorValorMaior($valor) {
-        $sql = "SELECT * FROM $this->tabela WHERE valor > :valor";
+        $sql = "SELECT id, nome, estudio, categoria, idade, valor, disponibilidade, data_criado, data_editado FROM $this->tabela WHERE valor > :valor";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':valor', $valor);
         $stmt->execute();
