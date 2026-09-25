@@ -137,7 +137,7 @@ class Jogo {
     }
 
     public function consultaPorValorEntre($min, $max) {
-        $sql = "SELECT * FROM $this->tabela WHERE valor BETWEEN :min AND :max";
+        $sql = "SELECT id, nome, imagem, estudio, categoria, idade, valor, disponibilidade FROM $this->tabela WHERE valor BETWEEN :min AND :max";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':min', $min);
         $stmt->bindParam(':max', $max);
