@@ -3,7 +3,7 @@ $host = 'localhost';
 $port = 3307; // porta do MySQL
 $db   = 'games'; // nome 
 $user = 'root'; // usuário 
-$pass = 'usbw'; // senha 
+$pass = ''; // senha 
 $charset = 'utf8';
 
 $dsn = "mysql:host=$host;port=$port;dbname=$db;charset=$charset";
